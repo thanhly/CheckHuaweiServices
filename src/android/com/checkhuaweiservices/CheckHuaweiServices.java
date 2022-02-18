@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 import android.content.Context;
 
-import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.GoogleApiAvailabilityLight;
 
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
@@ -33,7 +33,7 @@ public class CheckHuaweiServices extends CordovaPlugin {
         try {
             JSONObject json = new JSONObject();
 
-            if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context) == com.google.android.gms.common.ConnectionResult.SUCCESS) {
+            if (GoogleApiAvailabilityLight.getInstance().isGooglePlayServicesAvailable(context) == com.google.android.gms.common.ConnectionResult.SUCCESS) {
                 json.put("status", false);
             } else if (HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(context) == ConnectionResult.SUCCESS) {
                 json.put("status", true);
